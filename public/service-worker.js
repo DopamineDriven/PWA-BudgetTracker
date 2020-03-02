@@ -57,3 +57,49 @@ self.addEventListener('activate', event => {
     )
     self.clients.claim()
 });
+
+// event listener for fetching
+self.addEventListener('fetch', event => {
+    // if fetch being executed contains /api, then...
+    if (event.request.url.includes('/api')) {
+        console.log(`[Service Worker] Fetch (data) ${event.request.url}`)
+        // respond with the following
+        event.respondWith(
+            // open cache specified, then...
+            caches.open(DATA_CACHE_NAME)
+                .then(cache => {
+                    // pass in opened cache, return request of fetch call being made
+                    return fetch(event.request)
+                        .then(response => {
+                            // if the response is okay (200), then...
+                            if (response.status === 200) {
+                                // clone response into cache and save url used to call fetch
+                                // this allows for replication of fetch event when offline
+                                cache.put(event.request.url, response.clone())
+                            }
+                            // return response
+                            return response
+                        })
+                        // if error then attempt to get fetch from cache if it exists
+                        .catch(error => {
+                            console.log(error)
+                            return cache.match(event.request)
+                        }) 
+                })
+        )
+        return
+    }
+    // else, if fetch does not contain /api, then...
+    event.respondWith(
+        // caches contains all caches, use open to get specified cache via CACHE_NAME
+        caches.open(CACHE_NAME)
+            .then(cache => {
+                // using cache returned, return match within cache of request being fetched
+                return cache.match(event.request)
+                    .then(response => {
+                        // return if response exists; else, make a fetch with the request
+                        return response || fetch(event.response)
+                    })
+            })
+    )
+});
