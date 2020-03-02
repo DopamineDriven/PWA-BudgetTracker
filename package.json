@@ -1,0 +1,28 @@
+{
+  "name": "pwa-budgettracker",
+  "version": "1.0.0",
+  "description": "Add functionality to existing Budget Tracker application for offline access and functionality.",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js",
+    "lite-server": "lite-server"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/DopamineDriven/PWA-BudgetTracker.git"
+  },
+  "author": "Andrew Ross",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/DopamineDriven/PWA-BudgetTracker/issues"
+  },
+  "homepage": "https://github.com/DopamineDriven/PWA-BudgetTracker#readme",
+  "dependencies": {
+    "compression": "^1.7.4",
+    "express": "^4.17.1",
+    "lite-server": "^2.5.4",
+    "mongoose": "^5.9.2",
+    "morgan": "^1.9.1"
+  }
+}
