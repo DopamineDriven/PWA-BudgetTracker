@@ -3,7 +3,7 @@ console.log("Hello from your service worker!");
 const FILES_TO_CACHE = [
     '/',
     './index.html',
-    './facvicon.ico',
+    // './favicon.ico',
     './index.js',
     './style.css',
     './manifest.webmanifest',
