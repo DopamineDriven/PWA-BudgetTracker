@@ -4,6 +4,7 @@ const mongoose = require("mongoose");
 const mongojs = require("mongojs")
 const compression = require("compression");
 const path = require("path");
+require('dotenv').config();
 
 const PORT = process.env.PORT || 1234;
 
@@ -17,8 +18,11 @@ app.use(express.json());
 
 app.use(express.static("public"));
 
+const MONGODB_URI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds131826.mlab.com:31826/heroku_n1pwnd6c`
+console.log(MONGODB_URI)
 // connect to database
-mongoose.connect("mongodb://localhost/PWA-BudgetTracker", {
+// "mongodb://localhost/PWA-BudgetTracker"
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, 
     useFindAndModify: false,
     useCreateIndex: true,
