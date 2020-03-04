@@ -17,7 +17,7 @@ request.onsuccess = (event) => {
     db = event.target.result
     // if navigator is online, check the database
     if (navigator.onLine) {
-        checkDatabase()
+        referenceDB()
     }
 };
 
@@ -52,7 +52,7 @@ function referenceDB () {
         if (getAll.result.length > 0) {
             // then fetch the bulk transactions pending
             // post getAll results via json stringify
-            fetch("/api/transction/bulk", {
+            fetch("/api/transaction/bulk", {
                 method: "POST",
                 body: JSON.stringify(getAll.result),
                 headers: {
