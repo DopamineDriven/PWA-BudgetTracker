@@ -30,7 +30,7 @@ request.onerror = (event) => {
 
 
 // function for saving the record from upgradeneeded event
-function saveRec (record) {
+function saveRecord (record) {
     // pending read/write transaction from databse = transact
     const transact = db.transaction(["pending"], "readwrite")
     // function to store the pending transaction record
