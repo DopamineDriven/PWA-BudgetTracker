@@ -8,7 +8,8 @@ const FILES_TO_CACHE = [
     './style.css',
     './manifest.webmanifest',
     './icons/192x192.png',
-    './icons/512x512.png'
+    './icons/512x512.png',
+    './db.js'
 ];
 
 const CACHE_NAME = 'static-cache-v2'
