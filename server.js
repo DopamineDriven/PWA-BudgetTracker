@@ -22,7 +22,7 @@ const MONGODB_URI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}
 console.log(MONGODB_URI)
 // connect to database
 // "mongodb://localhost/PWA-BudgetTracker"
-mongoose.connect(process.env.MONGODB_URI, {
+mongoose.connect("mongodb://localhost/PWA-BudgetTracker", {
     useNewUrlParser: true, 
     useFindAndModify: false,
     useCreateIndex: true,
@@ -31,7 +31,7 @@ mongoose.connect(process.env.MONGODB_URI, {
 
 // setting up mongo db
 const databaseURL = process.env.MONGODB_URI || "PWA-BudgetTracker";
-const collections = ["PWA-BudgetTracker"]
+const collections = ["transactions"]
 
 // reference to database
 const db = mongojs(databaseURL, collections)
@@ -45,5 +45,5 @@ db.on("error", error => {
 app.use(require("./routes/api.js"));
 
 app.listen(PORT, () => {
-  console.log(`App running on PORT ${PORT}!`);
+  console.log(`App running on PORT http://localhost:${PORT}`);
 });
