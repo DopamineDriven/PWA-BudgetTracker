@@ -9,7 +9,11 @@ const FILES_TO_CACHE = [
     './manifest.webmanifest',
     './icons/192x192.png',
     './icons/512x512.png',
-    './db.js'
+    './db.js',
+    'https://cdn.jsdelivr.net/npm/chart.js@2.8.0',
+    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css',
+    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff?v=4.7.0',
+    'https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/fonts/fontawesome-webfont.woff2?v=4.7.0'
 ];
 
 const CACHE_NAME = 'static-cache-v2'
