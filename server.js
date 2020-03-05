@@ -22,7 +22,7 @@ const MONGODB_URI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}
 console.log(MONGODB_URI)
 // connect to database
 // "mongodb://localhost/PWA-BudgetTracker"
-mongoose.connect(MONGODB_URI, {
+mongoose.connect(process.env.MONGODB_URI, {
     useNewUrlParser: true, 
     useFindAndModify: false,
     useCreateIndex: true,
