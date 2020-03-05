@@ -22,7 +22,7 @@ const MONGODB_URI = `mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}
 console.log(MONGODB_URI)
 // connect to database
 // "mongodb://localhost/PWA-BudgetTracker"
-mongoose.connect(process.env.MONGODB_URI || "mongodb://localhost/PWA-BudgetTracker", {
+mongoose.connect(`mongodb://${process.env.DB_USER}:${process.env.DB_PASSWORD}@ds131826.mlab.com:31826/heroku_n1pwnd6c`, {
     useNewUrlParser: true, 
     useFindAndModify: false,
     useCreateIndex: true,
